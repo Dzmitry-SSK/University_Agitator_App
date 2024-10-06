@@ -1,0 +1,230 @@
+<DrawerClickableItem@MDNavigationDrawerItem>
+    focus_color: "#e7e4c0"
+    text_color: "#0d7244"
+    icon_color: "#821e4b"
+    ripple_color: "#c5bdd2"
+    selected_color: "#0c6c4d"
+
+
+<DrawerLabelItem@MDNavigationDrawerItem>
+    text_color: "#0d7244"
+    icon_color: "#4a4939"
+    focus_behavior: False
+    selected_color: "#4a4939"
+    _no_ripple_effect: True
+
+<AddUserScreen>
+
+<UsersScreen>
+
+<TestsScreen>
+
+<AddTestScreen>
+
+<AddCampaignScreen>
+
+<CampaignsScreen>
+
+<AboutUniversityScreen>
+
+<AboutFacultyScreen>
+
+<AdminScreen>
+
+<ContentNavigationDrawer>
+
+    MDNavigationDrawerMenu:
+
+        MDNavigationDrawerHeader:
+            title: "Платановский Дмитрий"
+            title_color: "#821e4b"
+            text: "Разработчик"
+            spacing: "4dp"
+            padding: "12dp", 0, 0, "56dp"
+
+        MDNavigationDrawerLabel:
+            text: "Пользователи"
+            text_color: "#0d7244"
+
+        DrawerClickableItem:
+            icon: "account-plus"
+            text: "Добавить пользователя"
+            on_press:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "add_user"
+
+        DrawerClickableItem:
+            icon: "account-multiple"
+            text: "Все пользователи"
+            on_press:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "users"
+
+        MDNavigationDrawerDivider:
+
+        MDNavigationDrawerLabel:
+            text: "Тесты"
+            text_color: "#0d7244"
+
+        DrawerClickableItem:
+            icon: "newspaper-plus"
+            text: "Добавить тест"
+            on_press:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "add_test"
+
+        DrawerClickableItem:
+            icon: "newspaper"
+            text: "Выбрать тест"
+            on_press:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "tests"
+
+        MDNavigationDrawerDivider:
+
+        MDNavigationDrawerLabel:
+            text: "Агитационные компании"
+            text_color: "#0d7244"
+
+        DrawerClickableItem:
+            icon: "clipboard-plus"
+            text: "Добавить компанию"
+            on_press:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "add_campaign"
+
+        DrawerClickableItem:
+            icon: "clipboard-multiple"
+            text: "Все компании"
+            on_press:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "campaigns"
+
+        MDNavigationDrawerDivider:
+
+        MDNavigationDrawerLabel:
+            text: "Cправочная информация"
+            text_color: "#0d7244"
+
+        DrawerClickableItem:
+            icon: "newspaper-plus"
+            text: "Об университете"
+            on_press:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "about_university"
+
+        DrawerClickableItem:
+            icon: "newspaper"
+            text: "О факультете"
+            on_press:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "about_faculty"
+
+        DrawerClickableItem:
+            icon: "newspaper"
+            text: "Редактор"
+            on_press:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "admin"
+
+        MDNavigationDrawerDivider:
+
+        MDNavigationDrawerLabel:
+            text: "Разработчик"
+
+        DrawerLabelItem:
+            icon: "information-outline"
+            text: "Платановский Дмитрий Алексеевич"
+
+        DrawerClickableItem:
+            icon: "gmail"
+            right_text: "+99"
+            text_right_color: "#4a4939"
+            text: "Inbox"
+
+MDScreen:
+
+    MDTopAppBar:
+        title: "Navigation Drawer"
+        elevation: 4
+        pos_hint: {"top": 1}
+        md_bg_color: "#821e4b"
+        specific_text_color: "#fafafa"
+        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+
+    MDNavigationLayout:
+
+        MDScreenManager:
+            id: screen_manager
+
+            AddUserScreen:
+                name: "add_user"
+
+                MDLabel:
+                    text: "add_users"
+                    halign: "center"
+
+            UsersScreen:
+                name: "users"
+
+                MDLabel:
+                    text: "users"
+                    halign: "center"
+
+            TestsScreen:
+                name: "tests"
+
+                MDLabel:
+                    text: "tests"
+                    halign: "center"
+
+            AddTestScreen:
+                name: "add_test"
+
+                MDLabel:
+                    text: "add tests"
+                    halign: "center"
+
+            AddCampaignScreen:
+                name: "add_campaign"
+
+                MDLabel:
+                    text: "add campaign"
+                    halign: "center"
+
+            CampaignsScreen:
+                name: "campaigns"
+
+                MDLabel:
+                    text: "campaigns"
+                    halign: "center"
+
+            AboutUniversityScreen:
+                name: "about_university"
+
+                MDLabel:
+                    text: "about university"
+                    halign: "center"
+
+            AboutFacultyScreen:
+                name: "about_faculty"
+
+                MDLabel:
+                    text: "about faculty"
+                    halign: "center"
+
+            AdminScreen:
+                name: "admin"
+
+                MDLabel:
+                    text: "admin"
+                    halign: "center"
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            radius: (0, 16, 16, 0)
+
+            ContentNavigationDrawer:
+                screen_manager: screen_manager
+                nav_drawer: nav_drawer
+
